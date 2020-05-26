@@ -77,18 +77,18 @@ class Ticket_Emails__Woo extends Ticket_Emails__Abstract {
         // add reply to
         $headers .= sprintf( "Reply-To: %s \r\n", $from_email );
 
-        // add bccs
-
         // get a list of event ids from the order id
         $event_ids = tribe_tickets_get_event_ids( $order->get_id() );
 
         // get a string of emails to bcc.
         // this includes any in our setting plus organizers if enabled
-        $bcc = $this->get_bcc_emails( $event_ids );
-
-        // if we have any bcc emails, add them to the header
-        if( $bcc ) {
+        if( $bcc = $this->get_bcc_emails( $event_ids ) ) {
             $headers .= sprintf( "Bcc: %s \r\n", $bcc );
+        }
+
+        // Get a string of emails to cc.
+        if( $cc = tribe_get_option( 'ticketEmailsCC' ) ) {
+            $headers .= sprintf( "Cc: %s \r\n", $cc );
         }
 
         return $headers;

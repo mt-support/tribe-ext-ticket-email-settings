@@ -46,7 +46,7 @@ class Main {
             $instance->init();
         }, [
             'Settings_Tab',
-            'Custom_Content',
+            'Content',
             'Ticket_Emails__RSVP',
             'Ticket_Emails__TPP',
             'Ticket_Emails__Woo',

@@ -38,7 +38,9 @@ class Settings_Tab {
      * @return void
      */
     public function add_settings_tabs() {
-        new Tribe__Settings_Tab( 'ticket-emails', __( 'Ticket Emails', 'tribe-ext-ticket-email-settings' ), $this->get_field_data() );
+
+        // Create the settings tab.
+        $settings_tab = new Tribe__Settings_Tab( 'ticket-emails', __( 'Ticket Emails', 'tribe-ext-ticket-email-settings' ), $this->get_field_data() );
     }
 
     /**
@@ -51,7 +53,7 @@ class Settings_Tab {
     private function get_field_data() {
 
         $field_data = [
-            'priority' => 30,
+            'priority' => 25,
             'fields'   => [
                 'info-start' => [
                     'type' => 'html',
@@ -73,20 +75,22 @@ class Settings_Tab {
                     'type' => 'html',
                     'html' => '<div class="tribe-settings-form-wrap">',
                 ],
-                'eventsOnlineFieldHelperEmail' => [
+                'section-title-email-options' => [
                     'type' => 'html',
                     'html' => '<h3>' . __( 'Email options', 'tribe-ext-ticket-email-settings' ) . '</h3>',
                 ],
                 'ticketEmailsFromName' => [
                     'type' => 'text',
                     'label' => __('From name', 'tribe-ext-ticket-email-settings'),
+					'tooltip' => esc_html__( 'Use a custom "from" name on the ticket email.', 'tribe-ext-ticket-email-settings' ),
                     'can_be_empty' => true,
                     'validation_type' => 'html',
                     'size' => 'large',
                 ],
                 'ticketEmailsFromEmail' => [
                     'type' => 'text',
-                    'label' => __('From email', 'tribe-ext-ticket-email-settings'),
+                    'label' => __('From email address', 'tribe-ext-ticket-email-settings'),
+					'tooltip' => esc_html__( 'Use a custom "from" address on the ticket email.', 'tribe-ext-ticket-email-settings' ),
                     'can_be_empty' => true,
                     'validation_type' => 'email',
                     'size' => 'large',
@@ -94,13 +98,23 @@ class Settings_Tab {
                 'ticketEmailsSubject' => [
                     'type' => 'text',
                     'label' => __('Subject', 'tribe-ext-ticket-email-settings'),
+					'tooltip' => esc_html__( 'Use a custom email subject on the ticket email.', 'tribe-ext-ticket-email-settings' ),
                     'can_be_empty' => true,
                     'validation_type' => 'html',
+                    'size' => 'large',
+                ],
+                'ticketEmailsCC' => [
+                    'type' => 'text',
+                    'label' => __('CC', 'tribe-ext-ticket-email-settings'),
+					'tooltip' => esc_html__( 'Comma separated list of email addresses to CC on the ticket emails.', 'tribe-ext-ticket-email-settings' ),
+                    'can_be_empty' => true,
+                    'validation_type' => 'textarea',
                     'size' => 'large',
                 ],
                 'ticketEmailsBCC' => [
                     'type' => 'text',
                     'label' => __('BCC', 'tribe-ext-ticket-email-settings'),
+					'tooltip' => esc_html__( 'Comma separated list of email addresses to BCC on the ticket emails.', 'tribe-ext-ticket-email-settings' ),
                     'can_be_empty' => true,
                     'validation_type' => 'textarea',
                     'size' => 'large',
@@ -113,9 +127,30 @@ class Settings_Tab {
                     'validation_type' => 'boolean',
                     'size' => 'large',
                 ],
+                'section-title-email-content' => [
+                    'type' => 'html',
+                    'html' => '<h3>' . __( 'Email content', 'tribe-ext-ticket-email-settings' ) . '</h3>',
+                ],
+                'ticketEmailsARI' => [
+                    'type' => 'checkbox_bool',
+                    'label' => __('Attendee Registration Info', 'tribe-ext-ticket-email-settings'),
+					'tooltip' => esc_html__( 'Check this box to show the attendee registration info in the ticket emails.', 'tribe-ext-ticket-email-settings' ),
+                    'can_be_empty' => true,
+                    'validation_type' => 'boolean',
+                    'size' => 'large',
+                ],
+                'ticketEmailsGcal' => [
+                    'type' => 'checkbox_bool',
+                    'label' => __('Google Calendar Link', 'tribe-ext-ticket-email-settings'),
+					'tooltip' => esc_html__( 'Check this box to add "Google Calendar" links to the ticket emails.', 'tribe-ext-ticket-email-settings' ),
+                    'can_be_empty' => true,
+                    'validation_type' => 'boolean',
+                    'size' => 'large',
+                ],
                 'ticketEmailsContentBefore' => [
                     'type' => 'textarea',
                     'label' => __('Before content', 'tribe-ext-ticket-email-settings'),
+					'tooltip' => esc_html__( 'Additional content to display at the very beginning of the email.', 'tribe-ext-ticket-email-settings' ),
                     'can_be_empty' => true,
                     'validation_type' => 'html',
                     'size' => 'large',
@@ -123,6 +158,7 @@ class Settings_Tab {
                 'ticketEmailsContentAfter' => [
                     'type' => 'textarea',
                     'label' => __('After content', 'tribe-ext-ticket-email-settings'),
+					'tooltip' => esc_html__( 'Additional content to display at the very end of the email.', 'tribe-ext-ticket-email-settings' ),
                     'can_be_empty' => true,
                     'validation_type' => 'html',
                     'size' => 'large',
