@@ -12,9 +12,6 @@
 
 namespace Tribe__Extension__Ticket_Email_Settings;
 
-use function tribe_get_option;
-use function wp_kses_post;
-
 /**
  * Class Main
  *
@@ -42,7 +39,7 @@ class Main {
             // Create new instance
             $instance = new $module;
 
-            // Initiate the module
+            // Initiate the modules
             $instance->init();
         }, [
             'Settings_Tab',
