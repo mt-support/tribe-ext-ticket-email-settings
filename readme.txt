@@ -32,5 +32,5 @@ We're always interested in your feedback and our [premium forums](https://theeve
 
 == Changelog ==
 
-* May 25, 2020 *
+* June 08, 2020 *
 Initial release.
