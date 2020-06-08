@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:     Events Tickets Extension: Ticket Email Settings
- * Plugin URI:      https://theeventscalendar.com/extensions/add-a-private-event-link-to-ticket-emails/
+ * Plugin URI:      https://theeventscalendar.com/extensions/tribe-ext-ticket-email-settings
  * GitHub Plugin URI: https://github.com/mt-support/tribe-ext-ticket-email-settings
  * Description:     An extension that adds a tab for ticket email settings in the event settings.
  * Version:         1.0.0
