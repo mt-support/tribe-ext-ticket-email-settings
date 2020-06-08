@@ -60,7 +60,7 @@ class Ticket_Emails__EDD extends Ticket_Emails__Abstract {
         $event_ids = tribe_tickets_get_event_ids( $payment_id );
 
         // if this order doesn't have any tickets/events connected, bail
-        if( ! $event_ids || is_empty( $event_ids ) ) {
+        if( ! $event_ids || empty( $event_ids ) ) {
             return $headers;
         }
 
