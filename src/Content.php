@@ -17,7 +17,7 @@ use function tribe_get_option;
 use function wp_kses_post;
 
 /**
- * Class Main
+ * Class Content
  *
  * @since 1.0.0
  */

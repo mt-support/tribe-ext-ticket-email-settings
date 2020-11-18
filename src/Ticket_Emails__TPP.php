@@ -54,12 +54,12 @@ class Ticket_Emails__TPP extends Ticket_Emails__Abstract {
      */
     public function get_headers( $headers, $post_id ) {
 
-        // set the from name with our custom value. fallback to the value set in WooCommerce
-        $from_name = tribe_get_option( 'ticketEmailsFromName' );
+        // set the from name with our custom value. 
+        $from_name = $this->get_option( 'ticketEmailsFromName', 'Tribe');
 
-        // set the from email with our custom value. fallback to the value set in WooCommerce
+        // set the from email with our custom value. 
         $from_email = apply_filters( 'tribe_tpp_email_from_email', tribe_get_option( 'ticket-paypal-confirmation-email-sender-email', false ), $post_id, $order_id );
-        $from_email = tribe_get_option( 'ticketEmailsFromEmail', $from_email );
+        $from_email = $this->get_option( 'ticketEmailsFromEmail', $from_email );
 
         // start the header. add content type.
         $headers = "Content-Type: text/html \r\n";

@@ -68,11 +68,11 @@ class Ticket_Emails__EDD extends Ticket_Emails__Abstract {
 
         // set the from name with our custom value. fallback to the value set in EDD
         $from_name  = isset( $edd_options['from_name'] ) ? $edd_options['from_name'] : get_bloginfo( 'name' );
-        $from_name = tribe_get_option( 'ticketEmailsFromName', $from_name );
+        $from_name = $this->get_option( 'ticketEmailsFromName', $from_name );
 
         // set the from email with our custom value. fallback to the value set in WooCommerce
 		$from_email = isset( $edd_options['from_email'] ) ? $edd_options['from_email'] : get_option( 'admin_email' );
-        $from_email = tribe_get_option( 'ticketEmailsFromEmail', $from_email );
+        $from_email = $this->get_option( 'ticketEmailsFromEmail', $from_email );
 
         // start the header. add content type.
         $headers = "Content-Type: text/html \r\n";

@@ -55,10 +55,10 @@ class Ticket_Emails__RSVP extends Ticket_Emails__Abstract {
     public function get_headers( $headers, $post_id ) {
 
         // set the from name with our custom value. fallback to site name
-        $from_name = tribe_get_option( 'ticketEmailsFromName', get_bloginfo ( 'name' ) );
+        $from_name = $this->get_option( 'ticketEmailsFromName', get_bloginfo ( 'name' ) );
 
         // set the from email with our custom value. fallback to admin email
-        $from_email = tribe_get_option( 'ticketEmailsFromEmail', get_bloginfo ( 'admin_email' ) );
+        $from_email = $this->get_option( 'ticketEmailsFromEmail', get_bloginfo ( 'admin_email' ) );
 
         // start the header. add content type.
         $headers = "Content-Type: text/html \r\n";

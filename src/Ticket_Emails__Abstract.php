@@ -64,10 +64,8 @@ class Ticket_Emails__Abstract {
      * @param string $subject
      * @return string
      */
-    public function get_subject( $subject ) {
-
-        $subject = tribe_get_option( 'ticketEmailsSubject', $subject );
-
+    public function get_subject( $subject ) {        
+        $subject = $this->get_option( 'ticketEmailsSubject', $subject );        
         return $this->clean_text( $subject );
     }
 
@@ -154,4 +152,18 @@ class Ticket_Emails__Abstract {
     public function clean_text( $text ) {
         return stripslashes_deep( html_entity_decode( $text, ENT_COMPAT, 'UTF-8' ) );
     }
+
+    /**
+     * Wrapper for tribe_get_option to make sure we're not using empty values
+     *
+     * @since 1.0.1
+     *
+     * @param string $id - the option to retrieve
+     * @param string $default - the default value
+     * @return string
+     */
+    public function get_option( $id, $default = false) {
+        $setting = tribe_get_option( $id );
+        return ( $setting && '' !== $setting ) ? $setting : $default;         
+    }    
 }

@@ -66,10 +66,10 @@ class Ticket_Emails__Woo extends Ticket_Emails__Abstract {
         $headers = "Content-Type: text/html \r\n";
 
         // set the from name with our custom value. fallback to the value set in WooCommerce
-        $from_name = tribe_get_option( 'ticketEmailsFromName', $wc_email->get_from_name() );
+        $from_name = $this->get_option( 'ticketEmailsFromName', $wc_email->get_from_name() );
 
         // set the from email with our custom value. fallback to the value set in WooCommerce
-        $from_email = tribe_get_option( 'ticketEmailsFromEmail', $wc_email->get_from_address() );
+        $from_email = $this->get_option( 'ticketEmailsFromEmail', $wc_email->get_from_address() );
 
         // add from
         $headers .= sprintf( "From: %s <%s>\r\n", $this->clean_text( $from_name), $from_email );

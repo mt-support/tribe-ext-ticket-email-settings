@@ -34,3 +34,6 @@ We're always interested in your feedback and our [premium forums](https://theeve
 
 * June 08, 2020 *
 Initial release.
+
+* Nov 18, 2020 *
+Fix for empty fields being used for subject, sender name and sender email.
