@@ -54,30 +54,35 @@ class Ticket_Emails__RSVP extends Ticket_Emails__Abstract {
      */
     public function get_headers( $headers, $post_id ) {
 
-        // set the from name with our custom value. fallback to site name
-        $from_name = tribe_get_option( 'ticketEmailsFromName', get_bloginfo ( 'name' ) );
+        // String to store the email headers. 
+        $headers = "Content-Type: text/html" . "\r\n";
 
-        // set the from email with our custom value. fallback to admin email
-        $from_email = tribe_get_option( 'ticketEmailsFromEmail', get_bloginfo ( 'admin_email' ) );
+        // Set the default from name. 
+        $default_from_name = get_bloginfo( 'name' );
 
-        // start the header. add content type.
-        $headers = "Content-Type: text/html \r\n";
+        // Set the default from email. 
+        $default_from_email = get_bloginfo( 'admin_email' );
 
-        // add from
-        $headers .= sprintf( "From: %s <%s>\r\n", $this->clean_text( $from_name), $from_email );
+        // Set the from name with our custom value.
+        $from_name = $this->get_option( 'ticketEmailsFromName', $default_from_name );
 
-        // add reply to
-        $headers .= sprintf( "Reply-To: %s \r\n", $from_email );
+        // Set the from email with our custom value.
+        $from_email = $this->get_option( 'ticketEmailsFromEmail', $default_from_email );
 
-        // get a string of emails to bcc.
-        // this includes any in our setting plus organizers if enabled
+        // Add from.
+        $headers .= sprintf( "From: %s <%s>", $this->clean_text( $from_name ), $from_email ) . "\r\n";
+
+        // Add reply to.
+        $headers .= sprintf( "Reply-To: %s", $from_email ) . "\r\n";
+
+        // Get a string of emails to bcc.
         if( $bcc = $this->get_bcc_emails( $post_id ) ) {
-            $headers .= sprintf( "Bcc: %s \r\n", $bcc );
+            $headers .= sprintf( "Bcc: %s", $bcc ) . "\r\n";
         }
 
         // Get a string of emails to cc.
-        if( $cc = tribe_get_option( 'ticketEmailsCC' ) ) {
-            $headers .= sprintf( "Cc: %s \r\n", $cc );
+        if( $cc = $this->get_option( 'ticketEmailsCC' ) ) {
+            $headers .= sprintf( "Cc: %s", $cc ) . "\r\n";
         }
 
         return $headers;

@@ -2,9 +2,9 @@
 Contributors: ModernTribe
 Tags: events, calendar, tickets
 Requires at least: 5.0
-Tested up to: 5.4.1
+Tested up to: 5.7.0
 Requires PHP: 7.0
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPL version 2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -34,3 +34,6 @@ We're always interested in your feedback and our [premium forums](https://theeve
 
 * June 08, 2020 *
 Initial release.
+
+* March 20, 2021 *
+Fix for missing default subject and sender values. 
