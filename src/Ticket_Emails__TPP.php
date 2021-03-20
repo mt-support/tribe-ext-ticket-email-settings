@@ -55,10 +55,10 @@ class Ticket_Emails__TPP extends Ticket_Emails__Abstract {
     public function get_headers( $headers, $post_id ) {
 
         // String to store the email headers. 
-        $headers = "";
+        $headers = "Content-Type: text/html" . "\r\n";
 
         // Set the default from name. 
-        $default_from_name = 'Tribe';
+        $default_from_name = get_bloginfo( 'name' );
 
         // Set the default from email. 
         $default_from_email = apply_filters( 'tribe_tpp_email_from_email', tribe_get_option( 'ticket-paypal-confirmation-email-sender-email', false ), $post_id, $order_id );

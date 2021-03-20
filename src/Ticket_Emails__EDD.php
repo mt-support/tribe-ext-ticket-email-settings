@@ -67,7 +67,7 @@ class Ticket_Emails__EDD extends Ticket_Emails__Abstract {
         global $edd_options;
 
         // String to store the email headers. 
-        $headers = "";
+        $headers = "Content-Type: text/html" . "\r\n";
 
         // Set the default from name. 
         $default_from_name = isset( $edd_options['from_name'] ) ? $edd_options['from_name'] : get_bloginfo( 'name' );

@@ -55,7 +55,7 @@ class Ticket_Emails__RSVP extends Ticket_Emails__Abstract {
     public function get_headers( $headers, $post_id ) {
 
         // String to store the email headers. 
-        $headers = "";
+        $headers = "Content-Type: text/html" . "\r\n";
 
         // Set the default from name. 
         $default_from_name = get_bloginfo( 'name' );
