@@ -62,33 +62,38 @@ class Ticket_Emails__Woo extends Ticket_Emails__Abstract {
             return $headers;
         }
 
-        // start the header. add content type.
-        $headers = "Content-Type: text/html \r\n";
+        // String to store the email headers. 
+        $headers = "";
 
-        // set the from name with our custom value. fallback to the value set in WooCommerce
-        $from_name = $this->get_option( 'ticketEmailsFromName', $wc_email->get_from_name() );
+        // Set the default from name. 
+        $default_from_name = $wc_email->get_from_name();
 
-        // set the from email with our custom value. fallback to the value set in WooCommerce
-        $from_email = $this->get_option( 'ticketEmailsFromEmail', $wc_email->get_from_address() );
+        // Set the default from email. 
+        $default_from_email = $wc_email->get_from_address();
 
-        // add from
-        $headers .= sprintf( "From: %s <%s>\r\n", $this->clean_text( $from_name), $from_email );
+        // Set the from name with our custom value.
+        $from_name = $this->get_option( 'ticketEmailsFromName', $default_from_name );
 
-        // add reply to
-        $headers .= sprintf( "Reply-To: %s \r\n", $from_email );
+        // Set the from email with our custom value.
+        $from_email = $this->get_option( 'ticketEmailsFromEmail', $default_from_email );
 
-        // get a list of event ids from the order id
+        // Add from.
+        $headers .= sprintf( "From: %s <%s>", $this->clean_text( $from_name ), $from_email ) . "\r\n";
+
+        // Add reply to.
+        $headers .= sprintf( "Reply-To: %s", $from_email ) . "\r\n";
+
+        // Get a list of event ids from the order id.
         $event_ids = tribe_tickets_get_event_ids( $order->get_id() );
 
-        // get a string of emails to bcc.
-        // this includes any in our setting plus organizers if enabled
+        // Get a string of emails to bcc.
         if( $bcc = $this->get_bcc_emails( $event_ids ) ) {
-            $headers .= sprintf( "Bcc: %s \r\n", $bcc );
+            $headers .= sprintf( "Bcc: %s", $bcc ) . "\r\n";
         }
 
         // Get a string of emails to cc.
-        if( $cc = tribe_get_option( 'ticketEmailsCC' ) ) {
-            $headers .= sprintf( "Cc: %s \r\n", $cc );
+        if( $cc = $this->get_option( 'ticketEmailsCC' ) ) {
+            $headers .= sprintf( "Cc: %s", $cc ) . "\r\n";
         }
 
         return $headers;
