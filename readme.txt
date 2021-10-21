@@ -1,10 +1,10 @@
-=== Events Tickets Extension: Ticket Email Settings ===
-Contributors: ModernTribe
+=== Event Tickets Extension: Ticket Email Settings ===
+Contributors: theeventscalendar
 Tags: events, calendar, tickets
 Requires at least: 5.0
-Tested up to: 5.7.0
+Tested up to: 5.8.1
 Requires PHP: 7.0
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPL version 2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,12 +28,18 @@ Please visit our [extension library](https://theeventscalendar.com/extensions/) 
 
 = What if I experience problems? =
 
-We're always interested in your feedback and our [premium forums](https://theeventscalendar.com/support-forums/) are the best place to flag any issues. Do note, however, that the degree of support we provide for extensions like this one tends to be very limited.
+We're always interested in your feedback and our [premium forums](https://theeventscalendar.com/support/) are the best place to flag any issues. Do note, however, that the degree of support we provide for extensions like this one tends to be very limited.
 
 == Changelog ==
 
-* June 08, 2020 *
-Initial release.
+= [1.0.2] TBD =
 
-* March 20, 2021 *
-Fix for missing default subject and sender values. 
+* Fixed plugin name typo
+
+= [1.0.1] 2021-03-20 =
+
+* Fix for missing default subject and sender values. 
+
+= [1.0.1] 2020-06-08 =
+
+* Initial release.
