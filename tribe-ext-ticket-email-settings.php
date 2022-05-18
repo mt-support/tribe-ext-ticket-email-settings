@@ -1,16 +1,16 @@
 <?php
 /**
- * Plugin Name:     Events Tickets Extension: Ticket Email Settings
- * Plugin URI:      https://theeventscalendar.com/extensions/tribe-ext-ticket-email-settings
+ * Plugin Name:       Event Tickets Extension: Ticket Email Settings
+ * Plugin URI:        https://theeventscalendar.com/extensions/tribe-ext-ticket-email-settings
  * GitHub Plugin URI: https://github.com/mt-support/tribe-ext-ticket-email-settings
- * Description:     An extension that adds a tab for ticket email settings in the event settings.
- * Version:         1.0.1
- * Extension Class: Tribe__Extension__Ticket_Email_Settings
- * Author:          Modern Tribe, Inc.
- * Author URI:      http://m.tri.be/1971
- * License:         GPLv2 or later
- * License URI:     https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:     tribe-ext-ticket-email-settings
+ * Description:       An extension that adds a tab for ticket email settings in the event settings.
+ * Version:           1.0.2
+ * Extension Class:   Tribe__Extension__Ticket_Email_Settings
+ * Author:            The Events Calendar
+ * Author URI:        http://evnt.is/1971
+ * License:           GPLv2 or later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain:       tribe-ext-ticket-email-settings
  */
 
 // Do not load directly.
