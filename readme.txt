@@ -4,7 +4,7 @@ Tags: events, calendar, tickets
 Requires at least: 5.0
 Tested up to: 5.8.1
 Requires PHP: 7.0
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPL version 2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,7 +32,12 @@ We're always interested in your feedback and our [premium forums](https://theeve
 
 == Changelog ==
 
-= [1.0.2] TBD =
+= [1.0.3] 2022-05-19 =
+
+* Move settings to new Ticket Settings admin menu section.
+* Add support for Tickets Commerce. 
+
+= [1.0.2] 2021-10-21 =
 
 * Fixed plugin name typo
 
