@@ -18,18 +18,15 @@ namespace Tribe__Extension__Ticket_Email_Settings;
  * @since 1.0.0
  */
 class Main {
-
     /**
      * Extension initialization and hooks.
      */
     public function init() {
-
         // Load required files
         require_once( 'Ticket_Emails__Abstract.php' );
 
         // Load and boot our modules
         array_map( function( $module ) {
-
             // Load the file
             require_once( $module . ".php" );
 
@@ -46,6 +43,7 @@ class Main {
             'Content',
             'Ticket_Emails__RSVP',
             'Ticket_Emails__TPP',
+            'Ticket_Emails__TC',
             'Ticket_Emails__Woo',
             'Ticket_Emails__EDD'
         ]);
