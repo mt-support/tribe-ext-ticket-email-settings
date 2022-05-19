@@ -36,7 +36,7 @@ class Tribe__Extension__Ticket_Email_Settings extends Tribe__Extension {
      * Setup the Extension's properties.
      */
     public function construct() {
-        $this->add_required_plugin( 'Tribe__Tickets__Main' );
+        $this->add_required_plugin( 'Tribe__Tickets__Main', '5.4.0' );
     }
 
     /**
