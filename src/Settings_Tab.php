@@ -25,7 +25,6 @@ class Settings_Tab {
      * Add action to create settings tab.
      */
     public function init() {
-
         // Create the settings panel
         add_action( 'tribe_settings_do_tabs', [ $this, 'add_settings_tabs' ] );
     }
@@ -37,7 +36,16 @@ class Settings_Tab {
      *
      * @return void
      */
-    public function add_settings_tabs() {
+    public function add_settings_tabs( $admin_page ) {
+        if ( ! method_exists( tribe( 'tickets.main' ), 'settings') ) {
+            return;
+        }
+
+        $tickets_settings_page_id = tribe( 'tickets.main' )->settings()::$settings_page_id;
+
+        if ( ! empty( $admin_page ) && $tickets_settings_page_id !== $admin_page ) {
+            return;
+        }
 
         // Create the settings tab.
         $settings_tab = new Tribe__Settings_Tab( 'ticket-emails', __( 'Ticket Emails', 'tribe-ext-ticket-email-settings' ), $this->get_field_data() );
@@ -51,7 +59,6 @@ class Settings_Tab {
      * @return array
      */
     private function get_field_data() {
-
         $field_data = [
             'priority' => 25,
             'fields'   => [
