@@ -32,6 +32,10 @@ We're always interested in your feedback and our [premium forums](https://theeve
 
 == Changelog ==
 
+= [1.0.4] 2022-10-26 =
+
+* Fix email headers from being overridden by TC callback.
+
 = [1.0.3] 2022-05-19 =
 
 * Move settings to new Ticket Settings admin menu section.

@@ -93,7 +93,7 @@ class Ticket_Emails__Abstract {
         }
 
         // If there's any emails in the array, convert to comma separated string
-        return ( ! empty( $bcc ) ) ? implode( ",", $bcc ) : false;
+        return ( ! empty( $bcc ) ) ? implode( ",", $bcc ) : '';
     }
 
     /**
@@ -125,15 +125,11 @@ class Ticket_Emails__Abstract {
 
                 // Loop through the organizers
                 foreach( $organizers as $organizer_id ) {
-
-                    // Get the organizer name
-                    $organizer_name = $this->clean_text( tribe_get_organizer( $organizer_id ) );
-
                     // Get the organizer email address
                     $organizer_email = $this->clean_text( tribe_get_organizer_email( $organizer_id ) );
 
                     // Add the organizer email info to our emails array
-                    $emails[] = $organizer_name . "<$organizer_email>";
+                    $emails[] = $organizer_email;
                 }
             }
         }

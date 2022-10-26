@@ -40,7 +40,7 @@ class Ticket_Emails__TC extends Ticket_Emails__Abstract {
      * @return void
      */
     public function add_header_actions() {
-        add_filter( 'tribe_tickets_ticket_email_headers', [ $this, 'get_headers' ], 100, 2 );
+        add_filter( 'tribe_tickets_ticket_email_headers', [ $this, 'get_headers' ], 100, 6 );
     }
 
     /**
@@ -52,7 +52,11 @@ class Ticket_Emails__TC extends Ticket_Emails__Abstract {
      * @param int $post_id - the post id of the event.
      * @return string
      */
-    public function get_headers( $headers, $post_id ) {
+    public function get_headers( $headers, $post_id, $order_id, $tickets, $provider, $args ) {
+        if ( empty( $post_id ) || 'tpp' !== $provider ) {
+            return $headers;
+        }
+
         // String to store the email headers. 
         $headers = "Content-Type: text/html" . "\r\n";
 
