@@ -4,7 +4,7 @@
  * Plugin URI:        https://theeventscalendar.com/extensions/tribe-ext-ticket-email-settings
  * GitHub Plugin URI: https://github.com/mt-support/tribe-ext-ticket-email-settings
  * Description:       An extension that adds a tab for ticket email settings in the event settings.
- * Version:           1.0.4
+ * Version:           1.0.5
  * Extension Class:   Tribe__Extension__Ticket_Email_Settings
  * Author:            The Events Calendar
  * Author URI:        http://evnt.is/1971
@@ -30,7 +30,7 @@ if( ! class_exists( 'Tribe__Extension' ) ) {
  */
 class Tribe__Extension__Ticket_Email_Settings extends Tribe__Extension {
 
-    private static $version = "1.0.4";
+    private static $version = "1.0.5";
 
     /**
      * Setup the Extension's properties.
