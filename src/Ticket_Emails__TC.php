@@ -53,7 +53,7 @@ class Ticket_Emails__TC extends Ticket_Emails__Abstract {
      * @return string
      */
     public function get_headers( $headers, $post_id, $order_id, $tickets, $provider, $args ) {
-        if ( empty( $post_id ) || 'tpp' !== $provider ) {
+        if ( empty( $post_id ) || 'tc' !== $provider ) {
             return $headers;
         }
 
