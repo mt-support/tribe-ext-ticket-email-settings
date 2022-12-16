@@ -32,6 +32,10 @@ We're always interested in your feedback and our [premium forums](https://theeve
 
 == Changelog ==
 
+= [1.0.5] 2022-12-16 =
+
+* Fix tickets commerce email headers.
+
 = [1.0.4] 2022-10-26 =
 
 * Fix email headers from being overridden by TC callback.
